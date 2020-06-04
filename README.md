@@ -3,7 +3,7 @@
 
 # REST-API in nodejs
 ## Step 1 
-Create a new database "crud" in phpmyadmin
+Create a new database "YOUR_DATABASE_NAME" in phpmyadmin
 
 ## Step 2
 Create a table "users" with fields id(int)(PRIMARY KEY), name(varchar(100)), email(varchar(30)),location(varchar(100))
@@ -31,7 +31,7 @@ npm install -g nodemon
 Create a new file "index.js"
 
 ## Step 8
-Firstly connect with database
+Load required file and Database connection
 ```javascript
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -44,9 +44,9 @@ app.use(bodyParser.json());
 //Create Database Connection
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  password: "",
-  database: "itzakash_node_basic",
+  user: "USER_NAME",
+  password: "PASSWORD",
+  database: "YOUR_DATABASE_NAME",
 });
 ```
 ```javascript
@@ -69,7 +69,7 @@ connection.connect((er) => {
 
 
 ## Step 9
-Write code creating a new record
+Creating a new record
 
 ```javascript
 // creat or insert New Record
@@ -94,7 +94,7 @@ app.post("/api/create", (request, response) => {
 ```
 
 ## Step 10
-Write code for view all records
+View or Get all records
 ```javascript
 // Fetch all records
 app.get("/api/viewall", (request, response) => {
@@ -107,7 +107,7 @@ app.get("/api/viewall", (request, response) => {
 
 ```
 ## Step 11
-Write code for view a single record
+Get single record
 
 ```javascript
 // Fetch single record
@@ -123,7 +123,7 @@ app.get("/api/getUser/:id", (request, response) => {
 ```
 
 ## Step 12
-Write code for delete a record
+Delete single record
 ```javascript
 
 // delete Single record
@@ -138,7 +138,7 @@ app.get("/api/deleteUser/:id", (request, response) => {
 ```
 
 ## Step 13
-Write code for update a record
+Update single record
 ```javascript
 // update Single Record
 app.put("/api/updateUser", (request, response) => {
